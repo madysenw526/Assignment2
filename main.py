@@ -40,7 +40,10 @@ def cost_per_class(annual_cost, credits):
     """Give back what one 50-minute CS 1430 class meeting costs."""
     return (annual_cost / credits / SEMESTERS_PER_YEAR ) * (CS1430_CREDITS) / (CS1430_MEETINGS_PER_SEMESTER)
 
-
+def cost_per_coffee(annual_cost, coffee):
+    """Give back what one coffee costs. coffee is the number of coffees drank this semester."""
+    coffee_cost = annual_cost / coffee / SEMESTERS_PER_YEAR
+    return coffee_cost
 # ---- PROGRAM ----
 
 def main():
@@ -57,6 +60,7 @@ def main():
         print("3. Cost per day")
         print("4. Cost per credit")
         print("5. Cost per class")
+        print("6. Cost per coffee")
         print("Q. Quit")
 
         choice = input("Choose an option: ")
@@ -75,6 +79,9 @@ def main():
             print(f"Cost per credit: ${cost_per_credit(annual_cost, credits):.2f}")
         elif choice == "5":
             print(f"Cost per class: ${cost_per_class(annual_cost, credits):.2f}")
+        elif choice == "6":
+            coffee = float(input("Enter the number of coffees drank this semester: "))
+            print(f"Cost per coffee: ${cost_per_coffee(annual_cost, coffee):.2f}")
         else:
             print("Invalid option. Please try again.")
 
